@@ -1,14 +1,14 @@
 cask "otaku" do
-  version "1.1.0"
+  version "1.2.0"
 
   on_arm do
-    sha256 "3131bedf4fa69ce9af497f277276b7b36fa0a0c1c7c01c907806a72438fe986b"
+    sha256 "f9d730eb3bc9cdb132efa85d5c602729b2beb7185a458def3849e513bbe1fe87"
     url "https://github.com/vishnukv64/otaku/releases/download/v#{version}/otaku_#{version}_aarch64.dmg",
         verified: "github.com/vishnukv64/otaku/"
   end
 
   on_intel do
-    sha256 "d70b51851c5f0e68ea52820de79d4935cc6c328423b37ca720db943ca16505f8"
+    sha256 "b0d5746d5eb2d523150e14382d90b751dd562a91bcfc3a46f81a73079be2930d"
     url "https://github.com/vishnukv64/otaku/releases/download/v#{version}/otaku_#{version}_x64.dmg",
         verified: "github.com/vishnukv64/otaku/"
   end
