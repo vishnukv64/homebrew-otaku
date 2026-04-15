@@ -27,6 +27,18 @@ cask "otaku" do
 
   app "otaku.app"
 
+  # Otaku is not yet notarized by Apple, so Gatekeeper will refuse to launch
+  # the app with a "damaged and can't be opened" error after Homebrew adds the
+  # com.apple.quarantine xattr during install. Strip it here so `brew install`
+  # leaves the app in a runnable state. This line can be removed once the
+  # upstream release workflow signs + notarizes the bundle.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args:         ["-cr", "#{appdir}/otaku.app"],
+                   sudo:         false,
+                   must_succeed: false
+  end
+
   zap trash: [
     "~/Library/Application Support/com.otaku.player",
     "~/Library/Caches/com.otaku.player",
